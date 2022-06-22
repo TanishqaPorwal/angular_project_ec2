@@ -3,3 +3,14 @@ os: linux
 files:
   - source: /helloworld/dist/
     destination: /var/www/html/
+    
+hooks:
+  BeforeInstall:
+    - location: before.sh
+      timeout: 300
+      runas: root
+      
+      ApplicationStart:
+    - location: start.sh
+      timeout: 300
+      runas: root
